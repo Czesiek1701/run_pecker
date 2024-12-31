@@ -16,3 +16,9 @@
 <p align="center">
 <img src="[https://github.com/user-attachments/assets/32259229-234b-489a-8e41-ee4f845ff3d1](https://github.com/user-attachments/assets/4ca89310-324c-4abf-824f-6790fdb79c1d)" width="600"
 </p>
+
+![obraz](https://github.com/user-attachments/assets/53d1d5b5-c242-4ea9-9404-17e4c7b1f002)
+
+![obraz](https://github.com/user-attachments/assets/cab3f80f-19d2-487e-9884-70019595867c)
+
+![obraz](https://github.com/user-attachments/assets/896c454e-9646-4226-86e5-fff86be30b60)
