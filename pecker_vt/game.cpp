@@ -18,12 +18,13 @@ Game::Game(QWidget * gamePageParent):
 
     this->makeConnections();
     gameTimer->start(TIMESTAMP);
+    //this->start();
 }
 Game::~Game()
 {
     qDebug() << "Deleting game...";
-    //delete gamePage;
-    //delete gamePause;
+    delete gamePage;
+    delete gamePause;
     qDebug() << "Deleted game.";
 }
 void Game::start()
@@ -75,16 +76,29 @@ void Game::makeConnections()
         );
 
     connect(
+        gameTimer,
+        &QTimer::timeout,
         this->gamePage,
-        &GamePage::s_player_move_x,
-        this->gamePage->gameBoard->creature,
-        &Creature::setWishx
+        &GamePage::send_movement
         );
+
+    // connect(
+    //     this->gamePage,
+    //     &GamePage::s_player_move_x,
+    //     this->gamePage->gameBoard->creature,
+    //     &Creature::setWishx
+    //     );
+    // connect(
+    //     this->gamePage,
+    //     &GamePage::s_player_move_y,
+    //     this->gamePage->gameBoard->creature,
+    //     &Creature::setWishy
+    //     );
     connect(
         this->gamePage,
-        &GamePage::s_player_move_y,
-        this->gamePage->gameBoard->creature,
-        &Creature::setWishy
+        &GamePage::s_player_movement,
+        this->gamePage->gameBoard->player,
+        &Player::getMovementWish
         );
 }
 // void Game::close()

@@ -1,15 +1,19 @@
 #include "creature.h"
-#include "game.h"
+// #include "game.h"
 
-Creature::Creature(QGraphicsScene * scene)
+Creature::Creature(QGraphicsScene * scene, QString impath=":/data/pecker.bmp")
     :QGraphicsPixmapItem() , QObject(scene)
 {
     qDebug() << "Creating creature...";
     //game_graphicsScene = scene;
-    image = new QImage(":/data/pecker.bmp");
+    image = new QImage(impath);
     this->setPixmap(QPixmap::fromImage(*image));
+    //setTransformOriginPoint( image->size().width()/2, image->size().height()/2 );
+    setTransformOriginPoint( boundingRect().width()/2, boundingRect().height()/2 );
+    this->setScale(30.0/boundingRect().width());
     //pixItem = new QGraphicsPixmapItem(QPixmap::fromImage(*image));
     scene -> addItem(this);
+    //boundingRect().width();
     qDebug() << "Created creature.";
 }
 Creature::~Creature()
@@ -32,16 +36,32 @@ void Creature::creatureDummyMove()
 //     return pixItem;
 // }
 
-void Creature::setWishx(int d)
+
+// void Creature::setWishx(int d)
+// {
+//     creatureWish[0] = d;
+// }
+// void Creature::setWishy(int d)
+// {
+//     creatureWish[1] = d;
+// }
+
+void Creature::actualize()
 {
-    creatureWish[0] = d;
-}
-void Creature::setWishy(int d)
-{
-    creatureWish[1] = d;
+    this->selfMove();
 }
 
 void Creature::selfMove()
 {
-    this->moveBy( creatureWish[0]*step, creatureWish[1]*step );
+    double mag = std::sqrt(creatureWish[0]*creatureWish[0]+creatureWish[1]*creatureWish[1]);
+    if ( std::abs(mag)>0.0625  )
+    {
+        qDebug()<<mag;
+        this->moveBy( creatureWish[0]*step/mag, creatureWish[1]*step/mag );
+    }
+}
+
+void Creature::updateAngle()
+{
+    QGraphicsPixmapItem::setRotation(180/3.14159265*std::atan2(creatureWish[1], creatureWish[0])+90);
 }
