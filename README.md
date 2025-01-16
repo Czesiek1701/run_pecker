@@ -4,7 +4,8 @@
 
 ![obraz](https://github.com/user-attachments/assets/499b2e97-7cd5-44ff-862f-895c0f99d627)
 
-![obraz](https://github.com/user-attachments/assets/b1e3f17b-a570-4a64-89d1-9ad3e5462eed)
+![obraz](https://github.com/user-attachments/assets/76af46d5-b747-46cc-afeb-179a5746984a)
+
 
 ![obraz](https://github.com/user-attachments/assets/4ca89310-324c-4abf-824f-6790fdb79c1d)
 
